@@ -1,1 +1,1 @@
-# madHtmlPages
+# madHtmlPages for use with madApi
