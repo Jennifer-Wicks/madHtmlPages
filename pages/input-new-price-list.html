@@ -15,7 +15,7 @@
 				id="supplier_name"
 				placeholder="Namibia Wildlife Resort"
 				autofocus
-			/>
+				/>
 			<br /><br />
 
 			<label for="area">Area:</label>
@@ -23,11 +23,13 @@
 			<br /><br />
 
 			<label for="national_park">National Park:</label>
-			<input type="text" name="national_park" id="national_park" placeholder="Naukluft Park" />
+			<input type="text" name="national_park" id="national_park"
+				placeholder="Naukluft Park" />
 			<br /><br />
 
 			<label for="camp_name">Camp Name:</label>
-			<input type="text" name="camp_name" id="camp_name" placeholder="Ai-Ais Resort" />
+			<input type="text" name="camp_name" id="camp_name" placeholder="Ai-Ais
+				Resort" />
 			<br /><br />
 
 			<label for="accommodation_type">Accommodation Type:</label>
@@ -36,25 +38,18 @@
 				name="accommodation_type"
 				id="accommodation_type"
 				placeholder="Bush Chalet"
-			/>
+				/>
 			<br /><br />
-
-			<!-- <label for="season" id="seasons">Select Hi/Low Season or special:</label>
-			<select id="season" onChange="displayFields()">
-				<option value="">---Select One---</option>
-				<option value="lowSeason">Low Season</option>
-				<option value="highSeason">Hi Season</option>
-				<option value="special">Special</option>
-			</select>
-			<br /><br /> -->
 
 			<div id="displayLow">
 				<label for="low_season_start">Low season Start Date:</label>
-				<input type="date" name="low_season_start" id="low_season_start" placeholder="yyyy-mm-dd" />
+				<input type="date" name="low_season_start" id="low_season_start"
+					placeholder="yyyy-mm-dd" />
 				<br /><br />
 
 				<label for="low_season_end">Low season End Date:</label>
-				<input type="date" name="low_season_end" id="low_season_end" placeholder="yyyy-mm-dd" />
+				<input type="date" name="low_season_end" id="low_season_end"
+					placeholder="yyyy-mm-dd" />
 				<br /><br />
 			</div>
 
@@ -65,11 +60,12 @@
 					name="high_season_start"
 					id="high_season_start"
 					placeholder="yyyy-mm-dd"
-				/>
+					/>
 				<br /><br />
 
 				<label for="high_season_end">Hi season End Date:</label>
-				<input type="date" name="high_season_end" id="high_season_end" placeholder="yyyy-mm-dd" />
+				<input type="date" name="high_season_end" id="high_season_end"
+					placeholder="yyyy-mm-dd" />
 				<br /><br />
 			</div>
 
@@ -80,7 +76,7 @@
 					name="sharing_price_ls"
 					id="sharing_price_ls"
 					placeholder="Rand Value Only"
-				/>
+					/>
 				<br /><br />
 
 				<label for="single_price_ls">Single Price Low Season:</label>
@@ -89,7 +85,7 @@
 					name="single_price_ls"
 					id="single_price_ls"
 					placeholder="Rand Value Only"
-				/>
+					/>
 				<br /><br />
 			</div>
 
@@ -100,7 +96,7 @@
 					name="sharing_price_hs"
 					id="sharing_price_hs"
 					placeholder="Rand Value Only"
-				/>
+					/>
 				<br /><br />
 
 				<label for="single_price_hs">Single Price Hi Season:</label>
@@ -109,7 +105,7 @@
 					name="single_price_hs"
 					id="single_price_hs"
 					placeholder="Rand Value Only"
-				/>
+					/>
 				<br /><br />
 			</div>
 
@@ -119,7 +115,7 @@
 				name="warning_messages"
 				id="warning_messages"
 				placeholder="Warning Messages"
-			/>
+				/>
 			<br /><br />
 
 			<button onclick="handleSubmitPriceList()">Submit to data base</button>
@@ -128,7 +124,6 @@
 		<button onclick="getAllPrices()">Get all prices</button>
 
 		<script src="/jsFiles/postPriceApiCall.js"></script>
-		<script src="/jsFiles/getPrices.js"></script>
-		<!-- <script src="/jsFiles/input-new-price-list.js"></script> -->
+		<!-- <script src="/jsFiles/getPrices.js"></script> -->
 	</body>
 </html>
