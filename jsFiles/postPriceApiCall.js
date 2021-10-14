@@ -1,7 +1,6 @@
 const handleSubmitPriceList = async () => {
   try {
     const date = Date().slice(8, 10) + Date().slice(3, 7) + Date().slice(10, 15);
-
     const supplier_name = document.getElementById("supplier_name").value;
     const area = document.getElementById("area").value;
     const national_park = document.getElementById("national_park").value;
@@ -40,10 +39,8 @@ const handleSubmitPriceList = async () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
-    //  window.location = '/pages/input-new-price-list.html';
+    window.location = '/pages/input-new-price-list.html';
   } catch (err) {
     console.error(err.message);
   }
 };
-
-handleSubmitPriceList();
