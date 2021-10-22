@@ -14,6 +14,18 @@ const getAllPrices = async () => {
 };
 getAllPrices();
 
+const displayLoad = () => {
+  // Insert the loading...
+  var div = document.getElementById('loading');
+  var loading = document.createElement('h1');
+  div.appendChild(loading);
+  loading.textContent = "Getting prices.....";
+  setTimeout(function () {
+    loading.textContent = "";
+  }, 2900);
+}
+displayLoad()
+
 const headings = [
   "Season Dates",
   "Accommodation type",
@@ -21,8 +33,6 @@ const headings = [
   "Single - LS", ,
   "Sharing - HS",
   "Single - HS",
-  // "change",
-  // "delete"
 ];
 
 const createHeadings = () => {
@@ -121,6 +131,8 @@ const insertBody = () => {
       var createButton = document.createElement('button');
       createTD.appendChild(createButton);
       createButton.textContent = "Delete";
+      createButton.setAttribute("id", data.price_id);
+      createButton.setAttribute("onClick", "reply_click_del(this.id)");
     }
   });
 }

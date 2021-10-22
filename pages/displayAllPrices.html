@@ -12,6 +12,7 @@
       crossorigin="anonymous">
   </head>
   <body>
+    <div id="loading"></div>
     <table id="allPrices"></table>
     <!-- Button trigger modal -->
     <!--This functionallaty is in the displyAllPrices.js File-->
@@ -167,7 +168,7 @@
             <button
               type="button"
               class="btn btn-primary"
-              onclick="">
+              onclick="handleAmendPriceList(price_id)">
               Submit change to data base
             </button>
           </div>
@@ -176,7 +177,7 @@
     </div>
 
     <script src="../jsFiles/displyAllPrices.js"></script>
-    <script src="../jsFiles/getPriceById.js"></script>
+    <script src="../jsFiles/getAmendDeletePriceById.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
