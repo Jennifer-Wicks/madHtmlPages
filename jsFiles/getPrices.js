@@ -553,8 +553,7 @@ setTimeout(function () {
             createTD.textContent = data.single_price_hs;
           }
         }
-      }
-      )
+      })
     } else {
       const estNextYear = nextYear + 1;
       if (today >= nextLowSeasonStart) {
