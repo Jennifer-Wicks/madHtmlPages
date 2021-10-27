@@ -11,9 +11,98 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous">
   </head>
-  <body>
+  <body style="padding-top: 80px;">
+    <div
+      class="d-flex justify-content-around"
+      style="overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;">
+      <!--Model to select a single camp's prices-->
+
+      <!-- Button trigger modal -->
+      <button
+        style="margin: 10px;"
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModalCentered">
+        Select a single camp's prices
+      </button>
+
+      <!-- Modal -->
+      <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+              <label for="selectacamp">Select a camp:</label>
+
+              <select name="selectacamp" id="selectacamp">
+
+                <option value="">---Select a camp---</option>
+                <option value="Boplass Camp">Boplass Camp</option>
+                <option value="Duwisib Castle">Duwisib Castle</option>
+                <option value="Hobas Camp">Hobas Camp</option>
+                <option value="Khorixas Camp">Khorixas Camp</option>
+                <option value="Naukluft Camp">Naukluft Camp</option>
+                <option value="Olifantsrus Camp">Olifantsrus Camp</option>
+                <option value="Sesriem">Sesriem Camp</option>
+                <option value="Shark Island Camp">Shark Island Camp</option>
+                <option value="Terrace Bay Lodge">Terrace Bay Lodge</option>
+                <option value="Torra Bay Camp">Torra Bay Camp</option>
+                <option value="Jakkalsputz Camp">Jakkalsputz Camp</option>
+                <option value="Mile 72 Camp">Mile 72 Camp</option>
+                <option value="Mile 108 Camp">Mile 108 Camp</option>
+                <option value="Ai-Ais Hotsprings">Ai-Ais Hotsprings</option>
+                <option value="Gross Barmen Resort">Gross Barmen Resort</option>
+                <option value="Hardap Resort">Hardap Resort</option>
+                <option value="Halali Camp">Halali Camp</option>
+                <option value="Namutoni Camp">Namutoni Camp</option>
+                <option value="Okaukuejo Camp">Okaukuejo Camp</option>
+                <option value="Waterberg Camp">Waterberg Camp</option>
+                <option value="Sossus dune Lodge">Sossus dune Lodge</option>
+                <option value="Onkoshi Camp">Onkoshi Camp</option>
+                <option value="Dolomite Camp">Dolomite Camp</option>
+                <option value="Popa Falls Lodge">Popa Falls Lodge</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal">Close</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="displaySearchInfo()"
+                data-dismiss="modal">Get Prices</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        style="margin: 10px;"
+        type="submit"
+        class="btn btn-primary"
+        onclick="getAllPrices()">
+        Get All Prices
+      </button>
+      <button
+        style="margin: 10px;"
+        id="clearScreen"
+        type="submit"
+        class="btn btn-primary">
+        Clear Screen
+      </button>
+    </div>
+
     <div id="loading"></div>
+
     <table id="allPrices"></table>
+
     <!-- Button trigger modal -->
     <!--This functionallaty is in the displyAllPrices.js File-->
 
@@ -22,14 +111,6 @@
       aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal"
-              aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
           <div class="modal-body">
             <form>
               <label for="supplier_name">Supplier Name:</label>
@@ -176,7 +257,9 @@
       </div>
     </div>
 
+    <script src="../jsFiles/clearDom.js"></script>
     <script src="../jsFiles/displyAllPrices.js"></script>
+    <script src="../jsFiles/displayAllPricesSearch.js"></script>
     <script src="../jsFiles/getAmendDeletePriceById.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

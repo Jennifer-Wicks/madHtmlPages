@@ -29,8 +29,8 @@ displayLoad()
 setTimeout(function () {
 
   const headings = ["Accommodation", "Sharing", "Single"];
-  const thisCampName = "Ai-Ais";
-  let today = new Date(2021, 10, 1);
+  const thisCampName = "Okaukuejo Camp";
+  let today = new Date(2020, 10, 01);
   const lastYear = today.getFullYear() - 1;
   const nextYear = today.getFullYear() + 1;
   const currentLowSeasonStart = new Date(today.getFullYear(), 0, 1)

@@ -1,4 +1,6 @@
 const camps = [];
+let campNames = [];
+let campName = [];
 
 const getAllPrices = async () => {
   try {
@@ -7,6 +9,7 @@ const getAllPrices = async () => {
     for (let i = 0; i < jsonData.length; i++) {
       camps.push(jsonData[i])
     }
+
     const displayLoad = () => {
       // Insert the loading...
       var div = document.getElementById('loading');
@@ -15,6 +18,7 @@ const getAllPrices = async () => {
       loading.textContent = "Getting prices.....";
     }
     displayLoad()
+
     const headings = [
       "Season Dates",
       "Accommodation type",
@@ -38,9 +42,6 @@ const getAllPrices = async () => {
         createTH.textContent = data;
       });
     };
-
-    let campNames = [];
-    let campName = [];
 
     const insertBody = () => {
       createHeadings();
@@ -115,18 +116,17 @@ const getAllPrices = async () => {
         var createHeading = document.createElement('h3');
         div.appendChild(createHeading);
         createHeading.textContent = data;
-
         campName = data;
+
+        loading.textContent = "";
+
         insertBody()
       });
     };
     displyAllPrices();
-    console.log("camps", camps)
-    loading.textContent = "";
+
   }
   catch (err) {
     console.error(err.message)
   }
 };
-getAllPrices();
-

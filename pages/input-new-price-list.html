@@ -6,126 +6,125 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Price List</title>
 	</head>
-	<body>
-		<form>
-			<label for="supplier_name">Supplier Name:</label>
-			<input
-				type="text"
-				name="supplier_name"
-				id="supplier_name"
-				placeholder="Namibia Wildlife Resort"
-				autofocus
-				/>
-			<br /><br />
-
-			<label for="area">Area:</label>
-			<input type="text" name="area" id="area" placeholder="Fish River Canyon" />
-			<br /><br />
-
-			<label for="national_park">National Park:</label>
-			<input type="text" name="national_park" id="national_park"
-				placeholder="Naukluft Park" />
-			<br /><br />
-
-			<label for="camp_name">Camp Name:</label>
-			<input
-				type="text"
-				name="camp_name"
-				id="camp_name"
-				placeholder="Ai-Ais Resort" />
-			<br /><br />
-
-			<label for="accommodation_type">Accommodation Type:</label>
-			<input
-				type="text"
-				name="accommodation_type"
-				id="accommodation_type"
-				placeholder="Bush Chalet"
-				/>
-			<br /><br />
-
-			<div id="displayLow">
-				<label for="low_season_start">Low season Start Date:</label>
-				<input type="date" name="low_season_start" id="low_season_start"
-					placeholder="yyyy-mm-dd" />
-				<br /><br />
-
-				<label for="low_season_end">Low season End Date:</label>
-				<input type="date" name="low_season_end" id="low_season_end"
-					placeholder="yyyy-mm-dd" />
-				<br /><br />
-			</div>
-
-			<div id="displayHigh">
-				<label for="high_season_start">Hi season Start Date:</label>
-				<input
-					type="date"
-					name="high_season_start"
-					id="high_season_start"
-					placeholder="yyyy-mm-dd"
-					/>
-				<br /><br />
-
-				<label for="high_season_end">Hi season End Date:</label>
-				<input type="date" name="high_season_end" id="high_season_end"
-					placeholder="yyyy-mm-dd" />
-				<br /><br />
-			</div>
-
-			<div id="displayLowP">
-				<label for="sharing_price_ls">Sharing Price Low Season:</label>
+	<body style="padding: 15px;">
+		<div class="container">
+			<form>
+				<label for="supplier_name">Supplier Name:</label>
 				<input
 					type="text"
-					name="sharing_price_ls"
-					id="sharing_price_ls"
-					placeholder="Rand Value Only"
+					name="supplier_name"
+					id="supplier_name"
+					placeholder="Namibia Wildlife Resort"
+					autofocus
 					/>
 				<br /><br />
 
-				<label for="single_price_ls">Single Price Low Season:</label>
+				<label for="area">Area:</label>
+				<input type="text" name="area" id="area" placeholder="Fish River Canyon" />
+				<br /><br />
+
+				<label for="national_park">National Park:</label>
+				<input type="text" name="national_park" id="national_park"
+					placeholder="Naukluft Park" />
+				<br /><br />
+
+				<label for="camp_name">Camp Name:</label>
 				<input
 					type="text"
-					name="single_price_ls"
-					id="single_price_ls"
-					placeholder="Rand Value Only"
-					/>
+					name="camp_name"
+					id="camp_name"
+					placeholder="Ai-Ais Resort" />
 				<br /><br />
-			</div>
 
-			<div id="displayHighP">
-				<label for="sharing_price_hs">Sharing Price Hi Season:</label>
+				<label for="accommodation_type">Accommodation Type:</label>
 				<input
 					type="text"
-					name="sharing_price_hs"
-					id="sharing_price_hs"
-					placeholder="Rand Value Only"
+					name="accommodation_type"
+					id="accommodation_type"
+					placeholder="Bush Chalet"
 					/>
 				<br /><br />
 
-				<label for="single_price_hs">Single Price Hi Season:</label>
+				<div id="displayLow">
+					<label for="low_season_start">Low season Start Date:</label>
+					<input type="date" name="low_season_start" id="low_season_start"
+						placeholder="yyyy-mm-dd" />
+					<br /><br />
+
+					<label for="low_season_end">Low season End Date:</label>
+					<input type="date" name="low_season_end" id="low_season_end"
+						placeholder="yyyy-mm-dd" />
+					<br /><br />
+				</div>
+
+				<div id="displayHigh">
+					<label for="high_season_start">Hi season Start Date:</label>
+					<input
+						type="date"
+						name="high_season_start"
+						id="high_season_start"
+						placeholder="yyyy-mm-dd"
+						/>
+					<br /><br />
+
+					<label for="high_season_end">Hi season End Date:</label>
+					<input type="date" name="high_season_end" id="high_season_end"
+						placeholder="yyyy-mm-dd" />
+					<br /><br />
+				</div>
+
+				<div id="displayLowP">
+					<label for="sharing_price_ls">Sharing Price Low Season:</label>
+					<input
+						type="text"
+						name="sharing_price_ls"
+						id="sharing_price_ls"
+						placeholder="Rand Value Only"
+						/>
+					<br /><br />
+
+					<label for="single_price_ls">Single Price Low Season:</label>
+					<input
+						type="text"
+						name="single_price_ls"
+						id="single_price_ls"
+						placeholder="Rand Value Only"
+						/>
+					<br /><br />
+				</div>
+
+				<div id="displayHighP">
+					<label for="sharing_price_hs">Sharing Price Hi Season:</label>
+					<input
+						type="text"
+						name="sharing_price_hs"
+						id="sharing_price_hs"
+						placeholder="Rand Value Only"
+						/>
+					<br /><br />
+
+					<label for="single_price_hs">Single Price Hi Season:</label>
+					<input
+						type="text"
+						name="single_price_hs"
+						id="single_price_hs"
+						placeholder="Rand Value Only"
+						/>
+					<br /><br />
+				</div>
+
+				<label for="warning_messages">Warning Messages:</label>
 				<input
 					type="text"
-					name="single_price_hs"
-					id="single_price_hs"
-					placeholder="Rand Value Only"
+					name="warning_messages"
+					id="warning_messages"
+					placeholder="Warning Messages"
 					/>
 				<br /><br />
-			</div>
 
-			<label for="warning_messages">Warning Messages:</label>
-			<input
-				type="text"
-				name="warning_messages"
-				id="warning_messages"
-				placeholder="Warning Messages"
-				/>
-			<br /><br />
-
-			<button onclick="handleSubmitPriceList()">Submit to data base</button>
-		</form>
-
-		<button onclick="getAllPrices()">Get all prices</button>
-
+				<button onclick="handleSubmitPriceList()">Submit to data base</button>
+			</form>
+		</div>
 		<script src="/jsFiles/postPriceApiCall.js"></script>
 	</body>
 </html>
