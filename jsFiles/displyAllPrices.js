@@ -26,6 +26,8 @@ const getAllPrices = async () => {
       "Single - LS", ,
       "Sharing - HS",
       "Single - HS",
+      "",
+      "",
     ];
 
     const createHeadings = () => {
@@ -124,7 +126,6 @@ const getAllPrices = async () => {
       });
     };
     displyAllPrices();
-
   }
   catch (err) {
     console.error(err.message)

@@ -6,18 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All camp prices</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/pages/display-all-prices.css">
     <link rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous">
   </head>
-  <body style="padding-top: 80px;">
-    <div
-      class="d-flex justify-content-around"
-      style="overflow: hidden;
-      position: fixed;
-      top: 0;
-      width: 100%;">
+  <body>
+    <div class="d-flex justify-content-around navMaintenance">
       <!--Model to select a single camp's prices-->
 
       <!-- Button trigger modal -->
@@ -49,21 +45,21 @@
                 <option value="Khorixas Camp">Khorixas Camp</option>
                 <option value="Naukluft Camp">Naukluft Camp</option>
                 <option value="Olifantsrus Camp">Olifantsrus Camp</option>
-                <option value="Sesriem">Sesriem Camp</option>
+                <option value="Sesriem Camp">Sesriem Camp</option>
                 <option value="Shark Island Camp">Shark Island Camp</option>
-                <option value="Terrace Bay Lodge">Terrace Bay Lodge</option>
+                <option value="Terrace Bay Camp">Terrace Bay Camp</option>
                 <option value="Torra Bay Camp">Torra Bay Camp</option>
                 <option value="Jakkalsputz Camp">Jakkalsputz Camp</option>
                 <option value="Mile 72 Camp">Mile 72 Camp</option>
                 <option value="Mile 108 Camp">Mile 108 Camp</option>
-                <option value="Ai-Ais Hotsprings">Ai-Ais Hotsprings</option>
+                <option value="Ai-Ais Hot Springs">Ai-Ais Hotsprings</option>
                 <option value="Gross Barmen Resort">Gross Barmen Resort</option>
                 <option value="Hardap Resort">Hardap Resort</option>
                 <option value="Halali Camp">Halali Camp</option>
                 <option value="Namutoni Camp">Namutoni Camp</option>
                 <option value="Okaukuejo Camp">Okaukuejo Camp</option>
                 <option value="Waterberg Camp">Waterberg Camp</option>
-                <option value="Sossus dune Lodge">Sossus dune Lodge</option>
+                <option value="Sossus Dune Lodge">Sossus Dune Lodge</option>
                 <option value="Onkoshi Camp">Onkoshi Camp</option>
                 <option value="Dolomite Camp">Dolomite Camp</option>
                 <option value="Popa Falls Lodge">Popa Falls Lodge</option>
@@ -72,7 +68,7 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-primary"
                 data-dismiss="modal">Close</button>
               <button
                 type="button"
@@ -256,11 +252,12 @@
         </div>
       </div>
     </div>
-
+    <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
     <script src="../jsFiles/clearDom.js"></script>
     <script src="../jsFiles/displyAllPrices.js"></script>
     <script src="../jsFiles/displayAllPricesSearch.js"></script>
     <script src="../jsFiles/getAmendDeletePriceById.js"></script>
+    <script src="/jsFiles/toTopButton.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

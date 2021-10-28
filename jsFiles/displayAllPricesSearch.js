@@ -38,6 +38,8 @@ const displaySearchInfo = () => {
           "Single - LS", ,
           "Sharing - HS",
           "Single - HS",
+          "",
+          "",
         ];
 
         const createHeadings = () => {
@@ -117,12 +119,12 @@ const displaySearchInfo = () => {
 
         function displyAllPrices() {
 
+          loading.textContent = "";
+
           var div = document.getElementById('allPrices');
           var createHeading = document.createElement('h3');
           div.appendChild(createHeading);
           createHeading.textContent = searchInfo;
-
-          loading.textContent = "";
 
           insertBody();
         };
