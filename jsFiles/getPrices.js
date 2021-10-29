@@ -30,7 +30,7 @@ setTimeout(function () {
 
   const headings = ["Accommodation", "Sharing", "Single"];
   const thisCampName = "Okaukuejo Camp";
-  let today = new Date(2020, 10, 01);
+  let today = new Date();
   const lastYear = today.getFullYear() - 1;
   const nextYear = today.getFullYear() + 1;
   const currentLowSeasonStart = new Date(today.getFullYear(), 0, 1)
