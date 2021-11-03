@@ -76,12 +76,12 @@
             <table>
               <tr>
                 <td> <strong>Your First Name(s):</strong> </td>
-                <td> <input type="text" name="name" id="name" value="">
+                <td> <input type="text" name="name" id="name">
                 </td>
               </tr>
               <tr>
                 <td> <strong>Your Surname:</strong></td>
-                <td> <input type="text" name="surname" id="surname" value="">
+                <td> <input type="text" name="surname" id="surname">
                 </td>
               </tr>
               <tr>
@@ -92,8 +92,7 @@
                   <br />
                   (*required field)
                 </td>
-                <td> <input type="text" name="nationality" id="nationality"
-                    value="">
+                <td> <input type="text" name="nationality" id="nationality">
                   <p>
                     Where proof of nationality is needed we will reply
                     requesting copies of the
@@ -104,21 +103,21 @@
               </tr>
               <tr>
                 <td><strong>Your Telephone Number:</strong> </td>
-                <td> <input type="text" name="tel" id="tel" value="">
+                <td> <input type="text" name="tel" id="tel">
                 </td>
               </tr>
               <tr>
                 <td> <strong>Email Address:</strong> (*required field)</td>
                 <td>
-                  <input type="text" name="email" id="email" value="">
+                  <input type="text" name="email" id="email">
                 </td>
               </tr>
               <tr>
                 <td> <strong>Please check &amp; re-type your email
                     address:</strong><br> (*required field)</td>
                 <td>
-                  <input type="text" name="emailcheck" id="emailcheck" size="40"
-                    value="">
+                  <input type="text" name="emailcheck" id="emailcheck"
+                    size="40">
                   <p>Note: we will be unable to reply to you if there is a
                     mistake in your email address</p>
                 </td>
@@ -150,6 +149,7 @@
                   <p><strong>Booking 1: </strong><strong>Which Resort Would you
                       like to travel to?<br></strong>
                     <select id="resort1" name="resort1">
+                      <option value="Not Selected">Please Select A Camp</option>
                       <option value="Ai Ais">Ai Ais - Fish River Canyon</option>
                       <option value="Boplaas">Boplaas</option>
                       <option value="Daan Viljoen">Daan Viljoen</option>
@@ -186,8 +186,9 @@
                 </td>
                 <td>
                   <strong>What Type of Accommodation do you require? </strong>
-                  <input type="text" name="accomtype1" id="accomtype1" size="40"
-                    value=""></td>
+                  <input type="text" name="accomtype1" id="accomtype1"
+                    placeholder="Type of accommodation required" size="40">
+                </td>
               </tr>
               <tr>
                 <td>Arrival Date:<BR>
@@ -202,7 +203,7 @@
                     to?<br>
                   </strong>
                   <select id="resort2" name="resort2">
-                    <option value="Not Selected">Not Selected</option>
+                    <option value="Not Selected">Please Select A Camp</option>
                     <option value="Ai Ais">Ai Ais - Fish River Canyon</option>
                     <option value="Boplaas">Boplaas</option>
                     <option value="Daan Viljoen">Daan Viljoen</option>
@@ -236,8 +237,9 @@
                   </select> </td>
                 <td>
                   <strong>What Type of Accommodation do you require? </strong>
-                  <input type="text" name="accomtype2" id="accomtype2" size="40"
-                    value=""></td>
+                  <input type="text" name="accomtype2" id="accomtype2"
+                    placeholder="Type of accommodation required" size="40">
+                </td>
               </tr>
               <tr>
                 <td>Arrival Date:<BR>
@@ -250,7 +252,7 @@
                     to?<br>
                   </strong>
                   <select id="resort3" name="resort3">
-                    <option value="Not Selected">Not Selected</option>
+                    <option value="Not Selected">Please Select A Camp</option>
                     <option value="Ai Ais">Ai Ais - Fish River Canyon</option>
                     <option value="Boplaas">Boplaas</option>
                     <option value="Daan Viljoen">Daan Viljoen</option>
@@ -284,8 +286,9 @@
                   </select> </td>
                 <td>
                   <strong>What Type of Accommodation do you require? </strong>
-                  <input type="text" name="accomtype3" id="accomtype3" size="40"
-                    value=""></td>
+                  <input type="text" name="accomtype3" id="accomtype3"
+                    placeholder="Type of accommodation required" size="40">
+                </td>
               </tr>
               <tr>
                 <td>Arrival Date:<BR>
@@ -298,14 +301,17 @@
               <tr>
                 <td><strong>Comments:</strong> <BR>
                   <div class="col-12">
-                    <textarea name="comments" id="comments" placeholder="Enter
-                      your message" rows="6"></textarea><br>
+                    <textarea name="comments" id="comments"
+                      placeholder="Enter your message" rows="6"></textarea><br>
                     <div class="col-6 col-12-small">
                       <input type="checkbox" name="newsletter" id="newsletter"
                         value="I would like to receive your latest news and
                         special offers by email.">
-                      <label for="newsletter">I would like to receive your
-                        latest news and special offers by email</label>
+                      <label
+                        for="newsletter">
+                        I would like to receive your latest news and special
+                        offers by email
+                      </label>
                     </div>
                   </div>
                 </td>
@@ -313,10 +319,10 @@
             </table>
             <div class="row aln-center">
               <input class="button primary" type="submit" id="quote" name="book"
-                value="Send me a Quote">&nbsp; &nbsp;
+                value="Send me a Quote">
+              &nbsp; &nbsp;
               <input class="button" type="submit" id="book" name="book"
-                value="Book
-                Now">
+                value="Book Now">
             </div>
           </form>
 
@@ -333,6 +339,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="/jsFiles/newformtemp.js"></script>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/browser.min.js"></script>
     <script src="/assets/js/breakpoints.min.js"></script>
