@@ -30,7 +30,7 @@ setTimeout(function () {
 
   const headings = ["Accommodation", "Sharing", "Single"];
   const thisCampName = "Jakkalsputz Camp";
-  let today = new Date();
+  let today = new Date(2021, 10, 1);
   const lastYear = today.getFullYear() - 1;
   const nextYear = today.getFullYear() + 1;
   const currentLowSeasonStart = new Date(today.getFullYear(), 0, 1)
@@ -42,9 +42,18 @@ setTimeout(function () {
   let checkForNextSeasonRatesLs = "";
   let lastYearOfRatesInDbHs = "";
   let lastYearOfRatesInDbFullYearHs = "";
+  let estwarning_messages = "Estimated Prices";
+  let checkForErrorMess = [];
 
   //global functions
   // Season dates to be used in headings
+
+  for (let i = 0; i < camps.length; i++) {
+    if (thisCampName === camps[i].camp_name) {
+      checkForErrorMess = camps[i].warning_messages
+    }
+  }
+
   const seasonDates = {
     low_season_start: "01 November" + " " + lastYear,
     low_season_end: "30 June" + " " + today.getFullYear(),
@@ -70,16 +79,28 @@ setTimeout(function () {
   changeSeasonDatesToNextYearHs()
 
   const createHeadingsLs = () => {
-    // Insert the headings low season
     var div = document.getElementById('lowSeason');
     var createTHead = document.createElement('thead');
     div.appendChild(createTHead);
 
     var createTRh = document.createElement('tr');
     createTHead.appendChild(createTRh);
-    var createTDh = document.createElement('td');
-    createTRh.appendChild(createTDh);
-    createTDh.textContent = "";
+
+    camps.map(data => {
+
+      const dbDateLsE = new Date(data.low_season_end);
+
+      if (today < dbDateLsE && dbDateLsE.getFullYear() === today.getFullYear()) {
+
+        if (thisCampName === data.camp_name) {
+          var createTDh = document.createElement('td');
+          createTRh.appendChild(createTDh);
+          createTDh.style.color = "red"
+          createTDh.style.textAlign = "left"
+          createTDh.textContent = data.warning_messages;
+        }
+      }
+    });
 
     var createTDh = document.createElement('td');
     createTRh.appendChild(createTDh);
@@ -106,9 +127,12 @@ setTimeout(function () {
 
     var createTRh = document.createElement('tr');
     createTHead.appendChild(createTRh);
+
     var createTDh = document.createElement('td');
     createTRh.appendChild(createTDh);
-    createTDh.textContent = "";
+    createTDh.style.color = "red"
+    createTDh.style.textAlign = "left"
+    createTDh.textContent = checkForErrorMess;
 
     var createTDh = document.createElement('td');
     createTRh.appendChild(createTDh);
@@ -200,18 +224,31 @@ setTimeout(function () {
   }
   displayHideButtonsLs()
 
-  //This high season
   const createHeadingsHs = () => {
-    // Insert the headings low season
     var div = document.getElementById('highSeason');
     var createTHead = document.createElement('thead');
     div.appendChild(createTHead);
 
     var createTRh = document.createElement('tr');
     createTHead.appendChild(createTRh);
-    var createTDh = document.createElement('td');
-    createTRh.appendChild(createTDh);
-    createTDh.textContent = "";
+
+    camps.map(data => {
+      const dbDateHsE = new Date(data.high_season_end);
+
+      if (today < dbDateHsE && dbDateHsE.getFullYear() === today.getFullYear()) {
+
+        if (thisCampName === data.camp_name) {
+          if (data.warning_messages !== "") {
+            var createTDh = document.createElement('td');
+            createTRh.appendChild(createTDh);
+            createTDh.style.color = "red"
+            createTDh.style.textAlign = "left"
+            createTDh.textContent = data.warning_messages;
+          }
+        }
+      }
+    })
+
 
     var createTDh = document.createElement('td');
     createTRh.appendChild(createTDh);
@@ -226,15 +263,6 @@ setTimeout(function () {
       createTH.textContent = data;
     });
   }
-
-  const insertSeasonHeadings = () => {
-    if (today >= currentHighSeasonStart && today <= currentLowSeasonEnd) {
-      return createHeadingsHs()
-    } else if (today > currentHighSeasonEnd) {
-      return createHeadingsHs()
-    }
-  }
-  insertSeasonHeadings();
 
   const insertBodyHs = () => {
     if (today >= currentLowSeasonStart && today <= currentHighSeasonEnd) {
@@ -270,6 +298,37 @@ setTimeout(function () {
       }
       )
     } else if (today > currentHighSeasonEnd && today < nextLowSeasonEnd) {
+
+      const createHeadingsNHs = () => {
+        var div = document.getElementById('highSeason');
+        var createTHead = document.createElement('thead');
+        div.appendChild(createTHead);
+
+        var createTRh = document.createElement('tr');
+        createTHead.appendChild(createTRh);
+
+        if (today > currentHighSeasonEnd) {
+          var createTDh = document.createElement('td');
+          createTRh.appendChild(createTDh);
+          createTDh.style.color = "red"
+          createTDh.style.textAlign = "left"
+          createTDh.textContent = checkForErrorMess;
+        }
+
+        var createTDh = document.createElement('td');
+        createTRh.appendChild(createTDh);
+        createTDh.setAttribute("colspan", "2")
+        createTDh.textContent = seasonDates.high_season_start + " " + "-" + " " + seasonDates.high_season_end;
+
+        var createTR = document.createElement('tr');
+        createTHead.appendChild(createTR);
+        headings.forEach(data => {
+          var createTH = document.createElement('th');
+          createTR.appendChild(createTH);
+          createTH.textContent = data;
+        });
+      }
+      createHeadingsNHs()
       camps.forEach(data => {
         const createTBody = document.createElement('tbody');
 
@@ -314,9 +373,23 @@ setTimeout(function () {
 
     var createTRh = document.createElement('tr');
     createTHead.appendChild(createTRh);
-    var createTDh = document.createElement('td');
-    createTRh.appendChild(createTDh);
-    createTDh.textContent = "";
+
+    camps.map(data => {
+      const dbDateHsE = new Date(data.high_season_end);
+
+      if (today < dbDateHsE && dbDateHsE.getFullYear() === today.getFullYear()) {
+
+        if (thisCampName === data.camp_name) {
+          if (data.warning_messages !== "") {
+            var createTDh = document.createElement('td');
+            createTRh.appendChild(createTDh);
+            createTDh.style.color = "red"
+            createTDh.style.textAlign = "left"
+            createTDh.textContent = data.warning_messages;
+          }
+        }
+      }
+    })
 
     var createTDh = document.createElement('td');
     createTRh.appendChild(createTDh);
@@ -379,8 +452,6 @@ setTimeout(function () {
             }
           };
 
-          console.log("checkForNextSeasonRatesLs 378", checkForNextSeasonRatesLs)
-
           // add the last rates to estimated prices so that the 20% price increase can be calculated
           if (nextYear + 1 > checkForNextSeasonRatesLs) {
             let estlow_season_end = "";
@@ -431,9 +502,14 @@ setTimeout(function () {
 
                 var createTRh = document.createElement('tr');
                 createTHead.appendChild(createTRh);
-                var createTDh = document.createElement('td');
-                createTRh.appendChild(createTDh);
-                createTDh.textContent = "";
+
+                if (today >= currentHighSeasonEnd) {
+                  var createTDh = document.createElement('td');
+                  createTRh.appendChild(createTDh);
+                  createTDh.style.color = "red"
+                  createTDh.style.textAlign = "left"
+                  createTDh.textContent = checkForErrorMess;
+                }
 
                 var createTDh = document.createElement('td');
                 createTRh.appendChild(createTDh);
@@ -464,7 +540,7 @@ setTimeout(function () {
             var createTD = document.createElement('td');
             createTR.appendChild(createTD);
             createTR.style.color = "red"
-            createTR.style.textAlign = "center"
+            createTR.style.textAlign = "left"
             createTD.textContent = estwarning_messages;
 
             estimatedCamp.forEach(data => {
@@ -509,9 +585,15 @@ setTimeout(function () {
 
       var createTRh = document.createElement('tr');
       createTHead.appendChild(createTRh);
-      var createTDh = document.createElement('td');
-      createTRh.appendChild(createTDh);
-      createTDh.textContent = "";
+
+
+      if (today >= currentLowSeasonStart && today <= currentHighSeasonEnd) {
+        var createTDh = document.createElement('td');
+        createTRh.appendChild(createTDh);
+        createTDh.style.color = "red"
+        createTDh.style.textAlign = "left"
+        createTDh.textContent = checkForErrorMess;
+      }
 
       var createTDh = document.createElement('td');
       createTRh.appendChild(createTDh);
@@ -567,9 +649,17 @@ setTimeout(function () {
 
         var createTRh = document.createElement('tr');
         createTHead.appendChild(createTRh);
-        var createTDh = document.createElement('td');
-        createTRh.appendChild(createTDh);
-        createTDh.textContent = "";
+        // var createTDh = document.createElement('td');
+        // createTRh.appendChild(createTDh);
+        // createTDh.textContent = "Working Here";
+
+        if (today >= nextLowSeasonStart) {
+          var createTDh = document.createElement('td');
+          createTRh.appendChild(createTDh);
+          createTDh.style.color = "red"
+          createTDh.style.textAlign = "left"
+          createTDh.textContent = checkForErrorMess;
+        }
 
         var createTDh = document.createElement('td');
         createTRh.appendChild(createTDh);
@@ -594,7 +684,6 @@ setTimeout(function () {
 
         if (nextYear + 1 > checkForNextSeasonRatesHs) {
           let esthigh_season_end = "";
-          let estwarning_messages = "Estimated Prices";
           let estimatedCamp = [];
           for (let i = 0; i < camps.length; i++) {
 
@@ -643,7 +732,7 @@ setTimeout(function () {
               var createTD = document.createElement('td');
               createTR.appendChild(createTD);
               createTR.style.color = "red"
-              createTR.style.textAlign = "center"
+              createTR.style.textAlign = "left"
               createTD.textContent = estwarning_messages;
 
               estimatedCamp.forEach(data => {
@@ -676,5 +765,5 @@ setTimeout(function () {
   }
   nextHighSeason()
 
+  console.log('today', today)
 }, 2000);
-
