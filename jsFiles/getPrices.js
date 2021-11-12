@@ -29,7 +29,7 @@ displayLoad()
 setTimeout(function () {
 
   const headings = ["Accommodation", "Sharing", "Single"];
-  const thisCampName = "Okaukuejo Camp";
+  const thisCampName = "Jakkalsputz Camp";
   let today = new Date();
   const lastYear = today.getFullYear() - 1;
   const nextYear = today.getFullYear() + 1;
