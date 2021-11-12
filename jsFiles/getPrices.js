@@ -451,7 +451,6 @@ setTimeout(function () {
               checkForNextSeasonRatesLs = camps[i].low_season_end.slice(0, 4);
             }
           };
-
           // add the last rates to estimated prices so that the 20% price increase can be calculated
           if (nextYear + 1 > checkForNextSeasonRatesLs) {
             let estlow_season_end = "";
@@ -459,7 +458,7 @@ setTimeout(function () {
 
             for (let i = 0; i < camps.length; i++) {
 
-              if (camps[i].low_season_end >= estlow_season_end) { //+1 year
+              if (camps[i].low_season_end >= estlow_season_end) {
                 estimatedCamp.push({
                   estaccommodation_type: estaccommodation_type = camps[i].accommodation_type,
                   estcamp_name: estcamp_name = camps[i].camp_name,
@@ -532,7 +531,6 @@ setTimeout(function () {
 
             var div = document.getElementById('lowSeasonNls');
             div.appendChild(createTBody);
-
 
             var createTR = document.createElement('tr');
             createTBody.appendChild(createTR);
@@ -649,9 +647,6 @@ setTimeout(function () {
 
         var createTRh = document.createElement('tr');
         createTHead.appendChild(createTRh);
-        // var createTDh = document.createElement('td');
-        // createTRh.appendChild(createTDh);
-        // createTDh.textContent = "Working Here";
 
         if (today >= nextLowSeasonStart) {
           var createTDh = document.createElement('td');
@@ -764,6 +759,186 @@ setTimeout(function () {
     };
   }
   nextHighSeason()
+
+  function estLowSeasonNls() {
+
+    let estimatedCamp = [];
+
+    const estimatedprices = () => {
+      for (let i = 0; i < camps.length; i++) {
+        if (camps[i].low_season_end > checkForNextSeasonRatesLs) {
+          checkForNextSeasonRatesLs = camps[i].low_season_end.slice(0, 4);
+        }
+      };
+      // add the last rates to estimated prices so that the 20% price increase can be calculated
+      if (nextYear > checkForNextSeasonRatesLs) {
+        let estlow_season_end = "";
+        let estwarning_messages = "Estimated Prices";
+
+        for (let i = 0; i < camps.length; i++) {
+
+          if (camps[i].low_season_end >= estlow_season_end) {
+            estimatedCamp.push({
+              estaccommodation_type: estaccommodation_type = camps[i].accommodation_type,
+              estcamp_name: estcamp_name = camps[i].camp_name,
+              estlow_season_end: estlow_season_end = camps[i].low_season_end,
+              estlow_season_start: estlow_season_start = camps[i].low_season_start,
+
+              single_price_ls_cost: single_price_ls_cost = camps[i].single_price_ls,
+              single_price_ls_price_increase: Math.round(single_price_ls_price_increase = camps[i].single_price_ls * 20 / 100),
+              single_price_ls_total: single_price_ls_total = Math.round(Number(single_price_ls_cost)) + Math.round(Number(single_price_ls_price_increase)),
+              estsingle_price_ls: estsingle_price_ls = single_price_ls_total,
+
+              sharing_price_ls_cost: sharing_price_ls_cost = camps[i].sharing_price_ls,
+              sharing_price_ls_price_increase: sharing_price_ls_price_increase = Math.round(camps[i].sharing_price_ls * 20 / 100),
+              sharing_price_ls_total: sharing_price_ls_total = Math.round(Number(sharing_price_ls_cost)) + Math.round(Number(sharing_price_ls_price_increase)),
+              estsharing_price_ls: estsharing_price_ls = sharing_price_ls_total
+            });
+          }
+        }
+        // check the dates and create new dates for the headings
+        let lastYearOfRatesInDbLs = [];
+
+        for (let i = 0; i < camps.length; i++) {
+          if (camps[i].low_season_end > lastYearOfRatesInDbLs) {
+            lastYearOfRatesInDbLs = camps[i].low_season_end.slice(0, 4);
+            lastYearOfRatesInDbFullYearLs = nextYear + camps[i].low_season_end.slice(4, 10);
+          }
+        }
+
+        const createTBody = document.createElement('tbody');
+
+        var div = document.getElementById('lowSeasonNls');
+        div.appendChild(createTBody);
+
+        var createTR = document.createElement('tr');
+        createTBody.appendChild(createTR);
+
+        var createTD = document.createElement('td');
+        createTR.appendChild(createTD);
+        createTR.style.color = "red"
+        createTR.style.textAlign = "left"
+        createTD.textContent = estwarning_messages;
+
+        estimatedCamp.forEach(data => {
+
+          var createTR = document.createElement('tr');
+          createTBody.appendChild(createTR);
+
+          if (thisCampName === data.estcamp_name) {
+
+            var createTD = document.createElement('td');
+            createTR.appendChild(createTD);
+            createTD.textContent = data.estaccommodation_type;
+
+            var createTD = document.createElement('td');
+            createTR.appendChild(createTD);
+            createTD.textContent = data.estsharing_price_ls;
+
+            if (data.estsingle_price_ls > 0) {
+              var createTD = document.createElement('td');
+              createTR.appendChild(createTD);
+              createTD.textContent = data.estsingle_price_ls;
+            }
+          }
+        })
+      };
+    }
+    estimatedprices();
+  }
+  estLowSeasonNls()
+
+  function estHighSeasonNhs() {
+    const estNextYear = nextYear + 1;
+
+    // Add estimated prices
+    let checkForNextSeasonRatesHs = [];
+
+    for (let i = 0; i < camps.length; i++) {
+      if (camps[i].high_season_end > checkForNextSeasonRatesHs) {
+        checkForNextSeasonRatesHs = camps[i].high_season_end.slice(0, 4);
+      }
+    }
+
+    if (nextYear > checkForNextSeasonRatesHs) {
+      let esthigh_season_end = "";
+      let estimatedCamp = [];
+
+      for (let i = 0; i < camps.length; i++) {
+
+        if (camps[i].high_season_end >= esthigh_season_end) {
+          estimatedCamp.push({
+            estaccommodation_type: estaccommodation_type = camps[i].accommodation_type,
+            estcamp_name: estcamp_name = camps[i].camp_name,
+            esthigh_season_end: esthigh_season_end = camps[i].high_season_end,
+            esthigh_season_start: esthigh_season_start = camps[i].high_season_start,
+
+            estsingle_price_hs_cost: single_price_hs_cost = camps[i].single_price_hs,
+            single_price_hs_price_increase: single_price_hs_price_increase = Math.round(camps[i].single_price_hs * 20 / 100),
+            single_price_hs_total: single_price_hs_total = Math.round(Number(single_price_hs_cost)) + Math.round(Number(single_price_hs_price_increase)),
+            estsingle_price_hs: estsingle_price_hs = single_price_hs_total,
+
+            sharing_price_hs_cost: sharing_price_hs_cost = camps[i].sharing_price_hs,
+            sharing_price_hs_price_increase: sharing_price_hs_price_increase = Math.round(camps[i].sharing_price_hs * 20 / 100),
+            sharing_price_hs_total: sharing_price_hs_total = Math.round(Number(sharing_price_hs_cost)) + Math.round(Number(sharing_price_hs_price_increase)),
+            estsharing_price_hs: estsharing_price_hs = sharing_price_hs_total,
+          });
+        }
+      }
+      const estimatedPrices = () => {
+        for (let i = 0; i < camps.length; i++) {
+          if (camps[i].high_season_end > lastYearOfRatesInDbHs) {
+            lastYearOfRatesInDbHs = camps[i].high_season_end.slice(0, 4);
+            lastYearOfRatesInDbFullYearHs = nextYear + camps[i].high_season_end.slice(4, 10);
+          }
+        }
+
+        addExtraYearHs = 1;
+        estimatedAddYearHs = Number(checkForNextSeasonRatesHs) + Number(addExtraYearHs);
+        seasonDates.high_season_start = "01 July" + " " + checkForNextSeasonRatesHs;
+        seasonDates.high_season_end = "31 October" + " " + estimatedAddYearHs;
+
+        //Add the body
+        const createTBody = document.createElement('tbody');
+
+        var div = document.getElementById('highSeasonNhs');
+        div.appendChild(createTBody);
+
+        var createTR = document.createElement('tr');
+        createTBody.appendChild(createTR);
+
+        var createTD = document.createElement('td');
+        createTR.appendChild(createTD);
+        createTR.style.color = "red"
+        createTR.style.textAlign = "left"
+        createTD.textContent = estwarning_messages;
+
+        estimatedCamp.forEach(data => {
+          var createTR = document.createElement('tr');
+          createTBody.appendChild(createTR);
+
+          if (thisCampName === data.estcamp_name) {
+
+            var createTD = document.createElement('td');
+            createTR.appendChild(createTD);
+            createTD.textContent = data.estaccommodation_type;
+
+            var createTD = document.createElement('td');
+            createTR.appendChild(createTD);
+            createTD.textContent = data.estsharing_price_hs;
+
+            if (data.estsingle_price_hs > 0) {
+              var createTD = document.createElement('td');
+              createTR.appendChild(createTD);
+              createTD.textContent = data.estsingle_price_hs;
+            }
+          }
+        });
+      };
+      estimatedPrices();
+    };
+  }
+  estHighSeasonNhs()
 
   console.log('today', today)
 }, 2000);
