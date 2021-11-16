@@ -18,7 +18,7 @@ const getAllPrices = async () => {
 
     const headings = ["Accommodation", "Sharing", "Single"];
     const thisCampName = "Jakkalsputz Camp";
-    let today = new Date(2021, 10, 1);
+    let today = new Date();
     const lastYear = today.getFullYear() - 1;
     const nextYear = today.getFullYear() + 1;
     const currentLowSeasonStart = new Date(today.getFullYear(), 0, 1)

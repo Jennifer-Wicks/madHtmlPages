@@ -187,7 +187,8 @@
                 <td>
                   <strong>What Type of Accommodation do you require? </strong>
                   <input type="text" name="accomtype1" id="accomtype1" size="40"
-                    value=""></td>
+                    value="">
+                </td>
               </tr>
               <tr>
                 <td>Arrival Date:<BR>
@@ -195,64 +196,65 @@
                 </td>
                 <td>Departure Date:<BR>
                   <input type="date" id="departday1" name="departday1">
-                </tr>
-              </table>
+                </td>
+              </tr>
+            </table>
 
-              <!--Insert camp selection-->
-              <div class="container" id="addACamp"></div>
-              <p id="add_extra_camp"></p>
-              <br />
-              <p class="button" onClick="addACamp()">
-                click here to add a camp
-              </p>
+            <!--Insert camp selection-->
+            <p id="add_extra_camp"></p>
+            <br />
+            <p class="button" onClick="addToCounter(), addACamp()">
+              click here to add a camp
+            </p>
 
-              <table>
-                <tr>
-                  <td><strong>Comments:</strong> <BR>
-                    <div class="col-12">
-                      <textarea name="comments" id="comments" placeholder="Enter
-                        your message" rows="6"></textarea><br>
-                      <div class="col-6 col-12-small">
-                        <input type="checkbox" name="newsletter" id="newsletter"
-                          value="I would like to receive your latest news and
-                          special offers by email.">
-                        <label for="newsletter">I would like to receive your
-                          latest news and special offers by email</label>
-                      </div>
+            <table>
+              <tr>
+                <td><strong>Comments:</strong> <BR>
+                  <div class="col-12">
+                    <textarea name="comments" id="comments" placeholder="Enter
+                      your message" rows="6"></textarea><br>
+                    <div class="col-6 col-12-small">
+                      <input type="checkbox" name="newsletter" id="newsletter"
+                        value="I would like to receive your latest news and
+                        special offers by email.">
+                      <label for="newsletter">I would like to receive your
+                        latest news and special offers by email</label>
                     </div>
-                  </td>
-                </tr>
-              </table>
-              <div class="row aln-center">
-                <input class="button primary" type="submit" id="quote"
-                  name="book"
-                  value="Send me a Quote">&nbsp; &nbsp;
-                <input class="button" type="submit" id="book" name="book"
-                  value="Book
-                  Now">
-              </div>
-            </form>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="row aln-center">
+              <input class="button primary" type="submit" id="quote"
+                name="book"
+                value="Send me a Quote">
+              &nbsp;
+              &nbsp;
+              <input class="button" type="submit" id="book" name="book"
+                value="Book
+                Now">
+            </div>
+          </form>
 
-            <!-- Footer -->
-            <footer id="footer">
-              <div class="inner">
-                <ul class="copyright">
-                  <li>&copy; 2020 - 2021 </li>
-                </ul>
-              </div>
-            </footer>
-          </div>
+          <!-- Footer -->
+          <footer id="footer">
+            <div class="inner">
+              <ul class="copyright">
+                <li>&copy; 2020 - 2021 </li>
+              </ul>
+            </div>
+          </footer>
         </div>
       </div>
+    </div>
 
-      <!-- Scripts -->
-      <script src="/jsFiles/booking-form-add-a-camp.js"></script>
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/jsFiles/bookingFormAddACamp.js"></script>
+  </body>
 
-      <script src="/assets/js/jquery.min.js"></script>
-      <script src="/assets/js/browser.min.js"></script>
-      <script src="/assets/js/breakpoints.min.js"></script>
-      <script src="/assets/js/util.js"></script>
-      <script src="/assets/js/main.js"></script>
-    </body>
-
-  </html>
+</html>
